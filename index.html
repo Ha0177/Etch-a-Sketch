@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Etch-a-Sketch</h1>
+ <div class="btn-container">
     <label for="gridSize">Grid Size: <span id="gridValue">16x16</span></label>
     <input type="range" id="gridSize" min="1" max="64" value="16">
     <button class="reset-btn">Clear</button>
     <button class="default-btn">Default Mode</button>
     <button class="rainbow-btn">Rainbow Mode</button>
+ </div>
     <div class="grid-container">
         
     </div>

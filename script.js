@@ -39,8 +39,8 @@ function createGrid() {
         squareDiv.style.width = squareSize + "px";
         squareDiv.style.height = squareSize + "px";
         gridContainer.appendChild(squareDiv);
-        slider.addEventListener("input", createGrid);
     }
+    slider.addEventListener("input", createGrid);
 }
 createGrid();
 

@@ -7,46 +7,57 @@ const rainbowBtn = document.querySelector("button.rainbow-btn");
 // Global Variables
 let currentColor = "black";
 
-// Drawing Functionality
+// Sets up drawing functionality for single clicks and drag drawing
 function gridDrawing() {
     let isDrawing = false;
 
-    // Mouse down event - start drawing
-    gridContainer.addEventListener("mousedown", () =>{
-        isDrawing = true;
-    });
-    
-    // Mouse up event - stop drawing
-    gridContainer.addEventListener("mouseup", () =>{
-        isDrawing = false;
-    });
-
-    // Mouse over event - draw on squares while mouse is down
-    gridContainer.addEventListener("mouseover", (e) => {
-        if (e.target.matches("div.square") && isDrawing) {
-            if (currentColor === "rainbow") {
-                e.target.style.backgroundColor = rainbowColor();
-            } else {
-                e.target.style.backgroundColor = currentColor;
+    gridContainer.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        if (e.button === 0) {
+            isDrawing = true;
+            if (e.target.matches("div.square")) {
+                drawSquare(e.target);
             }
         }
     });
+    
+    gridContainer.addEventListener("mouseup", () => {
+        isDrawing = false;
+    });
+
+
+    gridContainer.addEventListener("mouseover", (e) => {
+        if (e.target.matches("div.square") && isDrawing) {
+            drawSquare(e.target);
+        }
+    });
+
+    gridContainer.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+    });
+}
+
+// Draws on a square with current color or rainbow
+function drawSquare(square) {
+    if (currentColor === "rainbow") {
+        square.style.backgroundColor = rainbowColor();
+    } else {
+        square.style.backgroundColor = currentColor;
+    }
 }
 
 gridDrawing();
 
-    function createGrid() {
-
+// Creates the grid based on slider value
+function createGrid() {
     gridContainer.innerHTML = "";
     
     const gridSize = slider.value;
     const squareSize = 800 / gridSize;
 
-    // Update grid size display
     const gridValue = document.querySelector("span#gridValue");
     gridValue.innerText = gridSize + " x " + gridSize;
     
-    // Create squares for the grid
     for (let index = 0; index < gridSize * gridSize; index++) {
         const squareDiv = document.createElement("div");
         squareDiv.classList.add("square");
@@ -54,13 +65,11 @@ gridDrawing();
         squareDiv.style.height = squareSize + "px";
         gridContainer.appendChild(squareDiv);
     }
-    
-    slider.addEventListener("input", createGrid);
 }
 
 createGrid();
+slider.addEventListener("change", createGrid);
 
-// Reset Button Functionality
 function resetBtn() {
     const resetBtn = document.querySelector("button.reset-btn");
     resetBtn.addEventListener("click", () => {
@@ -74,7 +83,7 @@ defaultBtn.addEventListener("click", () => {
     currentColor = "black";
 });
 
-// Rainbow Color Generator Function
+// Generates random RGB color for rainbow mode
 function rainbowColor() {
     const r = Math.floor(Math.random() * 256)
     const g = Math.floor(Math.random() * 256)

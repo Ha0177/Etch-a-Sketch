@@ -28,10 +28,6 @@ body {
     border: 2px solid #86e3ff;
 }
 
-.square {
-    border: 1px solid #d0d0d0;
-    background-color: white;
-}
 
 .btn-container {
     display: flex;

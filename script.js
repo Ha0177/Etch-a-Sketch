@@ -5,3 +5,10 @@ for (let index = 0; index < 256; index++) {
     squareDiv.classList.add("square");
     gridContainer.appendChild(squareDiv);
 }
+
+gridContainer.addEventListener("mouseover", (e) => {
+    if (e.target.matches("div.square")) {
+        e.target.style.backgroundColor = "black";
+    }
+
+})

@@ -1,13 +1,16 @@
 const gridContainer = document.querySelector("div.grid-container");
 
-// for (let index = 0; index < 256; index++) {
-//     const squareDiv = document.createElement("div");
-//     squareDiv.classList.add("square");
-//     gridContainer.appendChild(squareDiv);
-// }
+let isDrawing = false;
+
+gridContainer.addEventListener("mousedown", () =>{
+    isDrawing = true;
+});
+gridContainer.addEventListener("mouseup", () =>{
+    isDrawing = false;
+});
 
 gridContainer.addEventListener("mouseover", (e) => {
-    if (e.target.matches("div.square")) {
+    if (e.target.matches("div.square") && isDrawing) {
         e.target.style.backgroundColor = "black";
     }
 });

@@ -53,7 +53,7 @@ function createGrid() {
     gridContainer.innerHTML = "";
     
     const gridSize = slider.value;
-    const squareSize = 800 / gridSize;
+    const squareSize = 600 / gridSize;
 
     const gridValue = document.querySelector("span#gridValue");
     gridValue.innerText = gridSize + " x " + gridSize;

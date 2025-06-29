@@ -20,8 +20,8 @@ body {
     box-shadow: 0 0 20px rgba(134, 227, 255, 0.3), 0 0 40px rgba(134, 227, 255, 0.1);
     display: flex;
     flex-wrap: wrap;
-    width: 803px;
-    height: 800px;
+    width: 604px;
+    height: 604px;
     line-height: 0;
     border-radius: 8px;
     background-color: white;

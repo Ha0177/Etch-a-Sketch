@@ -17,12 +17,20 @@ body {
 
 
 .grid-container {
-    border: 1px solid black;
+    box-shadow: 0 0 20px rgba(134, 227, 255, 0.3), 0 0 40px rgba(134, 227, 255, 0.1);
     display: flex;
     flex-wrap: wrap;
     width: 803px;
     height: 800px;
     line-height: 0;
+    border-radius: 8px;
+    background-color: white;
+    border: 2px solid #86e3ff;
+}
+
+.square {
+    border: 1px solid #d0d0d0;
+    background-color: white;
 }
 
 .btn-container {
